@@ -1,0 +1,45 @@
+<h1>QQ</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Assigned</th>
+    <th>Hours</th>
+    <th>Price</th>
+    <th>Notes</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qqs.each do |qq| %>
+  <tr>
+    <td><%= qq.name %></td>
+    <td><%= qq.assigned %></td>
+    <td><%= qq.hours %></td>
+    <td><%= qq.price %></td>
+    <td><%= qq.notes %></td>
+
+    <%
+       case qq.state
+       when "Pending"
+       %><td bgcolor="red">Pending</td><%
+       when "Approved"
+       %><td bgcolor="blue">Approved</td><%
+       when "Completed"
+       %><td bgcolor="green">Completed</td><%
+       end
+    %>
+
+
+    <td><%= link_to 'Show', qq %></td>
+    <td><%= link_to 'Edit', edit_qq_path(qq) %></td>
+    <td><%= link_to 'Destroy', qq, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Qq', new_qq_path %>

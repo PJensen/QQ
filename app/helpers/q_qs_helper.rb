@@ -1,0 +1,2 @@
+module QQsHelper
+end

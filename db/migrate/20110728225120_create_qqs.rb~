@@ -1,0 +1,18 @@
+class CreateQqs < ActiveRecord::Migration
+  def self.up
+    create_table :qqs do |t|
+      t.string :name
+      t.string :assigned
+      t.float :hours
+      t.float :price
+      t.text :notes
+      t.boolean :done
+
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :qqs
+  end
+end

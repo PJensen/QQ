@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @qq.name %>
+</p>
+
+<p>
+  <b>Assigned:</b>
+  <%= @qq.assigned %>
+</p>
+
+<p>
+  <b>Hours:</b>
+  <%= @qq.hours %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @qq.price %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @qq.notes %>
+  </p>
+
+<p>
+  <b>Status:</b>
+   <%
+       case @qq.state
+       when "Pending"
+       %><font bgcolor="black" color="red">Pending</font><%
+       when "Approved"
+       %><font bgcolor="black" color="yellow">Approved</font><%
+       when "Completed"
+       %><font bgcolor="black" color="green">Completed</font><%
+       end
+    %>
+</p>
+
+
+<%= link_to 'Edit', edit_qq_path(@qq) %> |
+<%= link_to 'Back', qqs_path %>
